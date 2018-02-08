@@ -4,7 +4,7 @@
 
 - Docker
 
-## Getting started
+## Development
 
 ```
 docker-compose up
