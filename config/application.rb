@@ -59,7 +59,13 @@ module Diaperpartner
     # Action Cable setting to allow connections from these domains.
     origins = ENV['ACTION_CABLE_ALLOWED_REQUEST_ORIGINS'].split(',')
     origins.map! { |url| /#{url}/ }
+
     config.action_cable.allowed_request_origins = origins
+
+  	config.to_prepare do
+      Devise::SessionsController.layout "login"
+      Devise::PasswordsController.layout "login"
+		end
   end
 end
 

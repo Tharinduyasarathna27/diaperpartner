@@ -1,4 +1,25 @@
 module ApplicationHelper
+  def default_title_content
+    if current_partner
+      current_partner.email
+    else
+      "DiaperPartner"
+    end
+  end
+
+  def active_class(name)
+    name.include?(controller_name) ? 'active' : controller_name
+  end
+
+  def flash_class(level)
+    case level
+    when 'notice' then "alert alert-info"
+    when 'success' then "alert alert-success"
+    when 'error' then "alert alert-danger"
+    when 'alert' then "alert alert-warning"
+    end
+  end
+
   def title(page_title)
     content_for(:title) { page_title }
   end

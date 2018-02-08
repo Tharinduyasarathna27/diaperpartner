@@ -51,6 +51,9 @@ gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-rails', '~> 4.7'
 
 gem 'devise', '~> 4.3'
+gem 'font-ionicons-rails', '~> 2.0.1.5'
+gem 'simple_form', '~> 3.4'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console
