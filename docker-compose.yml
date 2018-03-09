@@ -19,7 +19,7 @@ services:
     volumes:
       - 'redis:/data'
 
-  website:
+  web:
     depends_on:
       - 'postgres'
       - 'redis'
