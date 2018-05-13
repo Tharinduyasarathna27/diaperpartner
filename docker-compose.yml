@@ -1,33 +1,33 @@
 version: '2'
 
 services:
-  postgres:
+  partnerpostgres:
     image: 'postgres:9.6-alpine'
     environment:
-      POSTGRES_USER: 'diaperpartner'
-      POSTGRES_PASSWORD: 'yourpassword'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
       POSTGRES_DB: 'diaperpartner'
-    ports:
-      - '5433:5432'
+    # ports:
+    #   - '5433:5432'
     volumes:
-      - 'postgres:/var/lib/postgresql/data'
-    networks:
-      diaper:
-        aliases:
-          - diaperpartnerpostgres
+      - ./db/data/postgres:/var/lib/postgresql/data
+    # networks:
+    #   diaperpartnerpostgres:
+        # aliases:
+        #   - diaperpartnerpostgres
 
-  redis:
-    image: 'redis:3.2-alpine'
-    command: redis-server --requirepass yourpassword
-    ports:
-      - '6380:6379'
-    volumes:
-      - 'redis:/data'
+  # redis:
+  #   image: 'redis:3.2-alpine'
+  #   command: redis-server --requirepass yourpassword
+  #   ports:
+  #     - '6380:6379'
+  #   volumes:
+  #     - 'redis:/data'
 
   web:
     depends_on:
-      - 'postgres'
-      - 'redis'
+      - 'partnerpostgres'
+      # - 'redis'
     build: .
     ports:
       - '3001:3000'
@@ -37,40 +37,40 @@ services:
       - '.env'
     environment:
       - DIAPERBASE_SECRET_KEY=secretkey123
-    networks:
-      default:
-      diaper:
-        aliases:
-          - diaperpartner
+    # networks:
+    #   default:
+    #   diaper:
+    #     aliases:
+    #       - diaperpartner
 
-  sidekiq:
-    depends_on:
-      - 'postgres'
-      - 'redis'
-    build: .
-    command: sidekiq -C config/sidekiq.yml.erb
-    volumes:
-      - '.:/app'
-    env_file:
-      - '.env'
+  # sidekiq:
+  #   depends_on:
+  #     # - 'postgres'
+  #     - 'redis'
+  #   build: .
+  #   command: sidekiq -C config/sidekiq.yml.erb
+  #   volumes:
+  #     - '.:/app'
+  #   env_file:
+  #     - '.env'
 
-  cable:
-    depends_on:
-      - 'redis'
-    build: .
-    command: puma -p 28080 cable/config.ru
-    ports:
-      - '28080:28080'
-    volumes:
-      - '.:/app'
-    env_file:
-      - '.env'
+  # cable:
+  #   depends_on:
+  #     - 'redis'
+  #   build: .
+  #   command: puma -p 28080 cable/config.ru
+  #   ports:
+  #     - '28080:28080'
+  #   volumes:
+  #     - '.:/app'
+  #   env_file:
+  #     - '.env'
 
-volumes:
-  redis:
-  postgres:
+# volumes:
+#   redis:
+#   postgres:
 
-networks:
-  diaper:
-    external:
-     name: diaper_default
+# networks:
+#   diaper:
+#     external:
+#      name: diaper_default
