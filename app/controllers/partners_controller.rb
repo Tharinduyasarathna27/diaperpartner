@@ -24,6 +24,6 @@ class PartnersController < ApplicationController
   end
 
   def partner_params
-    params.permit :email
+    params.permit :email, :organization_id
   end
 end
