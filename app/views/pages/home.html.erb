@@ -13,4 +13,12 @@
 
 <!-- Main content -->
 <section class="content">
+
+  <h1>Items</h1>
+  <ul>
+  <% current_partner.items.each do |item| %>
+    <li><%= item.name %> (<%= item.category %>)</li>
+  <% end %>
+  </ul>
+
 </section>

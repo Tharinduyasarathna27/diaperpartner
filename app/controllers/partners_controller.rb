@@ -1,7 +1,4 @@
-class PartnersController < ApplicationController
-  skip_before_action :verify_authenticity_token
-  before_action :api_authenticate
-
+class PartnersController < ApiController
   def create
     # TODO This is terrible, but we haven't decided how it'll work yet...
     password_params = { password: 'password', password_confirmation: 'password' }
@@ -10,18 +7,6 @@ class PartnersController < ApplicationController
   end
 
   private
-
-  def api_authenticate
-    head(:unauthorized) unless autentic_access_id? && authentic_secret_key?
-  end
-
-  def autentic_access_id?
-    ApiAuth.access_id(request) == 'diaperbase'
-  end
-
-  def authentic_secret_key?
-    ApiAuth.authentic? request, ENV['DIAPERBASE_SECRET_KEY']
-  end
 
   def partner_params
     params.permit :email, :organization_id
