@@ -1,0 +1,8 @@
+<tr>
+  <td><%= l order_row.created_at %></td>
+  <td><%= order_row.line_items.total %></td>
+  <td><%= order_row.line_items.size %></td>
+  <td class="text-right">
+   <%= link_to "View", order_path(order_row), class: "btn btn-primary btn-xs" %>
+  </td>
+</tr>
