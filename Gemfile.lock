@@ -43,11 +43,19 @@ GEM
     autoprefixer-rails (8.5.0)
       execjs
     bcrypt (3.1.12)
+    better_errors (2.4.0)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
+    binding_of_caller (0.8.0)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (10.0.2)
+    cocoon (1.2.11)
+    coderay (1.1.2)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     crass (1.0.4)
@@ -211,8 +219,11 @@ PLATFORMS
 
 DEPENDENCIES
   api-auth (~> 1.5)
+  better_errors
+  binding_of_caller
   bootstrap-sass (~> 3.3)
   byebug
+  cocoon
   devise (~> 4.3)
   font-awesome-rails (~> 4.7)
   font-ionicons-rails (~> 2.0.1.5)

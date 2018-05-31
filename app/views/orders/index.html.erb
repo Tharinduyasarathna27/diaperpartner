@@ -1,0 +1,55 @@
+<section class="content-header">
+<% content_for :title, "#{current_partner.email} - Orders" %>
+<h1>
+  Orders
+  <small>for <%= current_partner.email %></small>
+</h1>
+<ol class="breadcrumb">
+  <li><%= link_to(root_path) do %>
+    <i class="fa fa-dashboard"></i> Home
+  <% end %>
+  </li>
+  <li><a href="#">Orders</a></li>
+</ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="box">
+    <div class="box-header with-border bg-gray">
+      <section id="filters">
+        <%= form_tag(orders_path, method: :get) do |f| %>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= link_to new_order_path, class: "btn btn-success btn pull-right"  do %>
+              <i class="fa fa-plus"></i> New Order
+            <% end %>
+
+          </div>
+        </div><!-- /.row -->
+        <% end # form %>
+      </section><!-- /#filters -->
+    </div><!-- /.box-header -->
+
+    <div class="box-body">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box-body table-responsive no-padding">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Created on</th>
+                  <th>Quantity of Items</th>
+                  <th>Variety of Items</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render partial: "order_row", collection: @orders %>
+              </tbody>
+            </table>
+          </div><!-- /.box-body.table-responsive -->
+        </div><!-- /.col-xs-12 -->
+      </div><!-- /.row -->
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+</section>

@@ -30,4 +30,5 @@
 //= require bootstrap/scrollspy
 //= require bootstrap/tab
 //= require bootstrap/transition
+//= require cocoon
 //= require_tree .

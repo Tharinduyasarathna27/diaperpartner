@@ -53,6 +53,7 @@ gem 'font-awesome-rails', '~> 4.7'
 gem 'devise', '~> 4.3'
 gem 'font-ionicons-rails', '~> 2.0.1.5'
 gem 'simple_form', '~> 3.4'
+gem 'cocoon'
 
 gem 'api-auth', '~> 1.5'
 
@@ -78,6 +79,9 @@ group :development do
   # Use Spring. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
