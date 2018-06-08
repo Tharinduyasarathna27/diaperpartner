@@ -3,7 +3,5 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :orders
-  resources :items, only: [:create]
   resources :partners, only: [:create]
 end
