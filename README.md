@@ -6,6 +6,8 @@
 
 -- Extracted from the [notes](https://gist.github.com/seanmarcia/3fcd7f0155ce559a7c698061a1323f34) of [Sean](https://gist.github.com/seanmarcia)
 
+See https://github.com/rubyforgood/diaperpartner/wiki for a full description.
+
 
 ## Development with Docker
 
