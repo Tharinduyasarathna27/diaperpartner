@@ -1,9 +1,9 @@
 module ApplicationHelper
   def default_title_content
-    if current_partner
-      current_partner.email
+    if current_user
+      current_user.email
     else
-      "DiaperPartner"
+      "Diaper Partner"
     end
   end
 

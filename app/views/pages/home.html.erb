@@ -1,13 +1,13 @@
 <section class="content-header">
-  <% content_for :title, "#{current_partner.email} - Dashboard" %>
+  <% content_for :title, "#{current_user.email} - Dashboard" %>
   <h1>
     Dashboard
-    <small>for <%= current_partner.email %></small>
+    <small>for <%= current_user.email %></small>
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
     <li><a href="#">Dashboard</a></li>
-    <li class="active"><%= current_partner.email %></li>
+    <li class="active"><%= current_user.email %></li>
   </ol>
 </section>
 
@@ -16,7 +16,7 @@
 
   <h1>Items</h1>
   <ul>
-  <% current_partner.items.each do |item| %>
+  <% current_user.items.each do |item| %>
     <li><%= item.name %> (<%= item.category %>)</li>
   <% end %>
   </ul>
