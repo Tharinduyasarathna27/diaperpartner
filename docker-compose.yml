@@ -37,11 +37,9 @@ services:
       - '.env'
     environment:
       - DIAPERBASE_SECRET_KEY=secretkey123
-    # networks:
-    #   default:
-    #   diaper:
-    #     aliases:
-    #       - diaperpartner
+    networks:
+      default:
+      diaperpartner:
 
   # sidekiq:
   #   depends_on:
@@ -70,7 +68,5 @@ services:
 #   redis:
 #   postgres:
 
-# networks:
-#   diaper:
-#     external:
-#      name: diaper_default
+networks:
+  diaperpartner:
