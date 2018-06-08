@@ -8,6 +8,8 @@ end
 # Looking to use the Edge version? gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 
+gem 'dotenv-rails'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.10'
 
