@@ -10,16 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180608151940) do
+ActiveRecord::Schema.define(version: 20180608183415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "diaper_bank", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "diaper_bank_users", force: :cascade do |t|
     t.integer "diaper_bank_id"
@@ -28,6 +22,12 @@ ActiveRecord::Schema.define(version: 20180608151940) do
     t.datetime "updated_at", null: false
     t.index ["diaper_bank_id"], name: "index_diaper_bank_users_on_diaper_bank_id"
     t.index ["user_id"], name: "index_diaper_bank_users_on_user_id"
+  end
+
+  create_table "diaper_banks", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "partner_users", force: :cascade do |t|
