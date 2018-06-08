@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :orders
-  devise_for :partners
+  devise_for :users
+
   root 'pages#home'
 
+  resources :orders
   resources :items, only: [:create]
   resources :partners, only: [:create]
 end

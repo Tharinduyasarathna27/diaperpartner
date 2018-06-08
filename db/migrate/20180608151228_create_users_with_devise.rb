@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class DeviseCreatePartners < ActiveRecord::Migration[5.1]
-  def change
-    create_table :partners do |t|
+class CreateUsersWithDevise < ActiveRecord::Migration[5.1]
+  def self.up
+    create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -32,13 +32,17 @@ class DeviseCreatePartners < ActiveRecord::Migration[5.1]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-
       t.timestamps null: false
+      t.boolean :admin
     end
 
-    add_index :partners, :email,                unique: true
-    add_index :partners, :reset_password_token, unique: true
-    # add_index :partners, :confirmation_token,   unique: true
-    # add_index :partners, :unlock_token,         unique: true
+    add_index :users, :email,                unique: true
+    add_index :users, :reset_password_token, unique: true
+    # add_index :users, :confirmation_token,   unique: true
+    # add_index :users, :unlock_token,         unique: true
+  end
+
+  def self.down
+    drop_table :users
   end
 end
