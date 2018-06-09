@@ -13,11 +13,13 @@
  *= require font-awesome
  *= require ionicons
  *= require AdminLTE
- *= require bootstrap.min
  *= require _all-skins
  *= require scale
  *= require_self
  */
+
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
 
 #logo img {
 max-height: 100%;
