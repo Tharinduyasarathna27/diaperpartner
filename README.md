@@ -48,6 +48,20 @@ Simply run `docker-compose up web` and visit [http://localhost:3001](http://loca
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
 ```
 
+### Seed the database
+From the root of the app, run `bundle exec rake db:seed`. This will create some initial data to use while testing the app and developing new features, including setting up the default user.
+
+### Login
+To login, use these default credentials:
+
+    Organization Admin
+      Email: test@example.com
+      Password: password
+
+    Super Admin
+      Email: testadmin@example.com
+      Password: password
+
 
 ## License
 
