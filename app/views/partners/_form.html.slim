@@ -3,8 +3,6 @@
     h1 Create Partner Agency
     .row
       = simple_form_for :partner do |f|
-        = f.input :email
-
         h2 Agency Information
         = f.input :name
         = f.input :distributor_type, collection: %w[Agency Hospital], as: :radio_buttons
@@ -92,10 +90,10 @@
         = f.input :executive_director_email
 
         h2 Program Contact Person
-        = f.input :program_contact
-        = f.input :program_phone
-        = f.input :program_mobile
-        = f.input :program_email
+        = f.input :program_contact_name
+        = f.input :program_contact_phone
+        = f.input :program_contact_mobile
+        = f.input :program_contact_email
 
         h2 Diaper Pick Up Person
         = f.input :pick_up_method, collection: %w[volunteers staff courier]

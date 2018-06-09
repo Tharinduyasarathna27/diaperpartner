@@ -4,9 +4,15 @@ class PartnersController < ApplicationController
   def new
   end
 
+  def create
+    real_fields = partner_params.slice(*Partner::REAL_FIELDS)
+    json_fields = partner_params.slice(*Partner::JSON_FIELDS)
+    partner = Partner.new(real_fields.merge(application_data: json_fields.to_json))
+  end
+
   private
 
   def partner_params
-    params.permit :email, :organization_id
+    params.permit *Partner::ALL_FIELDS
   end
 end
