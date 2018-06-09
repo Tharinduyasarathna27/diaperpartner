@@ -1,4 +1,4 @@
-class Partner < ApplicationRecord
+class DiaperBank < ApplicationRecord
   validates :name, presence: true
 
 end
