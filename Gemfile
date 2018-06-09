@@ -52,6 +52,8 @@ gem 'bootstrap'
 # Use Font Awesome Rails for Font Awesome icons
 gem 'font-awesome-rails', '~> 4.7'
 
+gem 'rb-readline'
+
 gem 'devise', '~> 4.3'
 gem 'font-ionicons-rails', '~> 2.0.1.5'
 gem 'simple_form', '~> 3.4'
