@@ -1,9 +1,7 @@
-class PartnersController < ApiController
-  def create
-    # TODO This is terrible, but we haven't decided how it'll work yet...
-    password_params = { password: 'password', password_confirmation: 'password' }
-    Partner.create partner_params.merge password_params
-    head :no_content
+class PartnersController < ApplicationController
+  skip_before_action :authenticate_user!, only: :new
+
+  def new
   end
 
   private

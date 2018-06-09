@@ -46,8 +46,8 @@ gem 'jquery-rails', '~> 4.3'
 # Use Turbolinks. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
-# Use Bootstrap SASS for Bootstrap support
-gem 'bootstrap-sass', '~> 3.3'
+# Use Bootstrap SASS for Bootstrap support >4
+gem 'bootstrap'
 
 # Use Font Awesome Rails for Font Awesome icons
 gem 'font-awesome-rails', '~> 4.7'
@@ -56,6 +56,7 @@ gem 'devise', '~> 4.3'
 gem 'font-ionicons-rails', '~> 2.0.1.5'
 gem 'simple_form', '~> 3.4'
 gem 'cocoon'
+gem 'slim'
 
 gem 'api-auth', '~> 1.5'
 

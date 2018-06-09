@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta charset="utf-8" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    title= t('title')
+    meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" /
+    = csrf_meta_tags
+    = javascript_include_tag 'application'
+    = stylesheet_link_tag    'application', media: 'all'
+    link href="/assets/blue.css" rel="stylesheet" /
+  body.hold-transition.login-page
+    header
+      nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
+        a.navbar-brand href="#" = t('title')
+        button.navbar-toggler aria-controls="navbarCollapse" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarCollapse" data-toggle="collapse" type="button"
+          span.navbar-toggler-icon
+        #navbarCollapse.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto
+            li.nav-item.active
+              = link_to t('nav.public.home'), root_path, class: 'nav-link'
+              /! <a class="nav-link" href="#"><haml_loud> t(&#39;nav.public.home&#39;) </haml_loud> <span class="sr-only">t('nav.current')</span></a
+            li.nav-item
+              = link_to t('nav.public.about'), about_path, class: 'nav-link'
+            li.nav-item
+              = link_to t('nav.public.signin'), new_user_session_path, class: 'nav-link'
+            li.nav-item
+              = link_to t('nav.public.apply'), new_partner_path, class: 'nav-link'
+    .login-logo
+      = image_tag 'DiaperPartner-Logo.png', alt: 'DiaperPartner Logo', style: 'width: 85%; height: 85%', alt: '', title: '', class: 'serv_icon'
+    = yield
+

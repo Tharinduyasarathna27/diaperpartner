@@ -1,0 +1,50 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta charset="utf-8" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    title= content_for?(:title) ? yield(:title) : default_title_content
+    meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" /
+    = csrf_meta_tags
+    = javascript_include_tag 'application'
+    = stylesheet_link_tag    'application', media: 'all'
+    link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic" rel="stylesheet" /
+  body.hold-transition.skin-blue.sidebar-mini
+    .wrapper
+      header.main-header
+        - if user_signed_in?
+          a.logo href=root_path
+        / span.logo-mini
+        /   img src="/apple-icon-180x180.png" /
+        span.logo-lg= image_tag "DiaperPartner-Logo.png", alt: "DiaperPartner Logo", id: "logo"
+        nav.navbar.navbar-static-top
+          a.sidebar-toggle data-toggle="push-menu" href="#" role="button"
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          - if user_signed_in?
+            = render partial: "layouts/lte_navbar"
+      - if user_signed_in?
+        = render partial: "layouts/lte_sidebar"
+      .content-wrapper
+        - flash.each do |key, value|
+          div class=("#{flash_class(key)} alert-dismissible")
+            a.close aria-label="close" data-dismiss="alert" href="#" style=("text-decoration: none;") = fa_icon('times')
+            = value
+        = yield
+      footer.main-footer
+        .pull-right.hidden-xs
+        strong
+          | Diaper Partner was built with
+          i.fa.fa-heart
+          | by
+          a href="http://rubyforgood.org"
+          | Ruby for Good
+    .control-sidebar-bg
+    javascript:
+      | $(document).ready(function () {
+        | $('.sidebar-menu').tree()
+      | })
+
