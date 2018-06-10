@@ -6,7 +6,7 @@ class AddPartnerFields < ActiveRecord::Migration[5.1]
       t.string :program_contact_name
       t.string :pick_up_name
       t.text :application_data
-      t.string :status, nil: false, default: 'Pending'
+      t.string :status, nil: false, default: 'pending'
     end
   end
 end

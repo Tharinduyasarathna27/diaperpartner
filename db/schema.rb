@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2018_06_09_211459) do
     t.string "program_contact_name"
     t.string "pick_up_name"
     t.text "application_data"
-    t.string "status", default: "Pending"
+    t.string "status", default: "pending"
     t.index ["diaper_bank_id"], name: "index_partners_on_diaper_bank_id"
   end
 
