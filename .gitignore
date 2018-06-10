@@ -21,3 +21,6 @@
 /public/assets/*
 .env
 db/data
+
+# Ignore ActiveStorage
+storage/**

@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Looking to use the Edge version? gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.3'
+gem 'rails', '~> 5.2.0'
 
 gem 'dotenv-rails'
 
@@ -23,10 +23,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.21'
 
 # Use Redis Rails to set up a Redis backed Cache and / or Session
-gem 'redis-rails', '~> 5.0'
+# gem 'redis-rails', '~> 5.0'
 
 # Use Sidekiq as a background job processor through Active Job
-gem 'sidekiq', '~> 5.0'
+# gem 'sidekiq', '~> 5.0'
 
 # Use Clockwork for recurring background tasks without needing cron
 # gem 'clockwork', '~> 2.0'
@@ -52,11 +52,11 @@ gem 'bootstrap'
 # Use Font Awesome Rails for Font Awesome icons
 gem 'font-awesome-rails', '~> 4.7'
 
+gem 'devise'
 gem 'rb-readline'
 
-gem 'devise', '~> 4.3'
 gem 'font-ionicons-rails', '~> 2.0.1.5'
-gem 'simple_form', '~> 3.4'
+gem 'simple_form'
 gem 'cocoon'
 gem 'slim'
 

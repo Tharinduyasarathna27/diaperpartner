@@ -1,0 +1,118 @@
+#content.column
+  .section
+    h1 Create Partner Agency
+    .row
+      = simple_form_for @partner do |f|
+        h2 Agency Information
+        = f.input :name
+        = f.input :distributor_type, collection: %w[Agency Hospital], as: :radio_buttons
+        = f.input :agency_type, collection: ['501(c)3', 'Religious Organization', 'Government Organization']
+        = f.input :proof_of_agency_status, as: :file
+        ul
+          li 501(c)3 Letter
+          li Letter of Good Standing from Denominational Headquarters
+          li Government Letterhead
+        = f.input :agency_mission, as: :text
+        = f.input :address1
+        = f.input :address2
+        = f.input :city
+        = f.input :state, collection: states
+        = f.input :zip_code
+
+        h2 Media Information
+        = f.input :website
+        = f.input :facebook
+        = f.input :twitter
+
+        h2 Agency Stability
+        = f.input :founded, as: :integer, input_html: { min: 1800, max: Date.current.year }
+        = f.input :form_990, as: :radio_buttons
+        = f.input :scan_990, as: :file
+        = f.input :program_name
+        = f.input :program_description
+        = f.input :program_age
+        = f.input :case_management, as: :radio_buttons
+        = f.input :evidence_based, as: :radio_buttons
+        = f.input :evidence_based_description, as: :text
+        = f.input :program_client_improvement, as: :text
+        = f.input :diaper_use, collection: diaper_use, as: :check_boxes
+        = f.input :other_diaper_use
+        = f.input :currently_provide_diapers, as: :radio_buttons
+        = f.input :turn_away_child_care, as: :radio_buttons
+
+        h3 Program Address
+        = f.input :program_address1
+        = f.input :program_address2
+        = f.input :program_city
+        = f.input :program_state, collection: states
+        = f.input :program_zip_code
+
+        h2 Organizational Capacity
+        = f.input :max_serve
+        = f.input :incorporate_plan, as: :text
+        = f.input :responsible_staff_position, as: :radio_buttons
+        = f.input :storage_space, as: :radio_buttons
+        = f.input :describe_storage_space, as: :text
+        = f.input :trusted_pickup, as: :radio_buttons
+
+        h2 Population Served
+        = f.input :income_requirement_desc, as: :radio_buttons
+        = f.input :serve_income_circumstances, as: :radio_buttons
+        = f.input :income_verification, as: :radio_buttons
+        = f.input :internal_db, as: :radio_buttons
+        = f.input :maac, as: :radio_buttons
+
+        h3 Ethnic composition of those served
+        = f.input :population_black, input_html: { min: 0, max: 100 }
+        = f.input :population_white, input_html: { min: 0, max: 100 }
+        = f.input :population_hispanic, input_html: { min: 0, max: 100 }
+        = f.input :population_asian, input_html: { min: 0, max: 100 }
+        = f.input :population_american_indian, input_html: { min: 0, max: 100 }
+        = f.input :population_island, input_html: { min: 0, max: 100 }
+        = f.input :population_multi_racial, input_html: { min: 0, max: 100 }
+        = f.input :population_other, input_html: { min: 0, max: 100 }
+
+        h3 Zips served
+        = f.input :zips_served
+
+        h3 Poverty information of those served
+        = f.input :at_fpl_or_below, input_html: { min: 0, max: 100 }
+        = f.input :above_1_2_times_fpl, input_html: { min: 0, max: 100 }
+        = f.input :greater_2_times_fpl, input_html: { min: 0, max: 100 }
+        = f.input :poverty_unknown, input_html: { min: 0, max: 100 }
+
+        h3 Ages served
+        = f.input :ages_served
+
+        h2 Executive Director
+        = f.input :executive_director_name
+        = f.input :executive_director_phone
+        = f.input :executive_director_email
+
+        h2 Program Contact Person
+        = f.input :program_contact_name
+        = f.input :program_contact_phone
+        = f.input :program_contact_mobile
+        = f.input :program_contact_email
+
+        h2 Diaper Pick Up Person
+        = f.input :pick_up_method, collection: %w[volunteers staff courier]
+        = f.input :pick_up_name
+        = f.input :pick_up_phone
+        = f.input :pick_up_email
+
+        h2 Agency Distribution Information
+        = f.input :distribution_times
+        = f.input :new_client_times
+        = f.input :more_docs_required
+
+        h2 Sources of Funding
+        = f.input :sources_of_funding, collection: funding_sources, as: :check_boxes
+        = f.input :sources_of_diapers, collection: diaper_sources, as: :check_boxes
+        = f.input :diaper_budget, collection: %w[N/A Yes No], as: :radio_buttons
+        = f.input :diaper_funding_source, collection: %w[N/A Yes No], as: :radio_buttons
+
+        h2 Signature
+        = f.input :signature
+
+        = f.button :submit
