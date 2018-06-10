@@ -10,7 +10,7 @@ class Partner < ApplicationRecord
                     diaper_use other_diaper_use currently_provide_diapers turn_away_child_care program_address1
                     program_address2 program_city program_state program_zip_code max_serve incorporate_plan
                     responsible_staff_position storage_space describe_storage_space trusted_pickup
-                    income_requirement_desc serve_income_circunstances income_verification internal_db maac
+                    income_requirement_desc serve_income_circumstances income_verification internal_db maac
                     population_black population_white population_hispanic population_asian population_american_indian
                     population_island population_multi_racial population_other zips_served at_fpl_or_below
                     above_1_2_times_fpl greater_2_times_fpl poverty_unknown ages_served
@@ -19,4 +19,18 @@ class Partner < ApplicationRecord
                     pick_up_email distribution_times new_client_times more_docs_required sources_of_funding
                     sources_of_diapers diaper_budget diaper_funding_source signature].freeze
   ALL_FIELDS = (REAL_FIELDS + JSON_FIELDS).freeze
+
+  JSON_FIELDS.each do |field_name|
+    define_method field_name do
+      data[field_name.to_s]
+    end
+
+    define_method "#{field_name}=" do |value|
+      data[field_name.to_s] = value
+    end
+  end
+
+  def data
+    application_data ||= {}
+  end
 end
