@@ -1,5 +1,7 @@
 class Partner < ApplicationRecord
   validates :name, presence: true
+  has_one_attached :scan_990
+  has_one_attached :proof_of_agency_status
 
   REAL_FIELDS = %i[name executive_director_name program_contact_name pick_up_name].freeze
   JSON_FIELDS = %i[distributor_type agency_type proof_of_agency_status agency_mission address1 address2 city
