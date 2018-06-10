@@ -1,5 +1,5 @@
 class PartnersController < ApplicationController
-  skip_before_action :authenticate_user!, only: :new
+  skip_before_action :authenticate_user!, only: %i[new create]
 
   def new
     @partner = Partner.new
@@ -12,6 +12,7 @@ class PartnersController < ApplicationController
     if @partner.save
       flash[:notice] = "Application saved"
     else
+      Rails.logger.error @partner.errors.full_messages.to_sentence
       render :new
     end
   end
