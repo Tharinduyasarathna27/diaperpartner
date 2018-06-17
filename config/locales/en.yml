@@ -28,3 +28,13 @@ en:
       signin: Sign In
       apply: Apply
     current: (current)
+  simple_form:
+    labels:
+      partner:
+        name: Your organization's name
+    hints:
+      partner:
+        name: The name of your organization
+    placeholders:
+      partner:
+        name: Diaper Partner

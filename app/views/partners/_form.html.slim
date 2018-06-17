@@ -2,7 +2,7 @@
   .section
     h1 Create Partner Agency
     .row
-      = simple_form_for @partner do |f|
+      = simple_form_for(@partner) do |f|
         h2 Agency Information
         = f.input :name
         = f.input :distributor_type, collection: %w[Agency Hospital], as: :radio_buttons

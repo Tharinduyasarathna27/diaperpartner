@@ -1,5 +1,6 @@
 class PartnersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[new create]
+  layout 'public'
 
   def new
     @partner = Partner.new
