@@ -53,12 +53,12 @@ gem 'bootstrap'
 gem 'font-awesome-rails', '~> 4.7'
 
 gem 'devise'
-gem 'rb-readline'
+# gem 'rb-readline'
 
+gem 'slim'
 gem 'font-ionicons-rails', '~> 2.0.1.5'
 gem 'simple_form'
 gem 'cocoon'
-gem 'slim'
 
 gem 'api-auth', '~> 1.5'
 
