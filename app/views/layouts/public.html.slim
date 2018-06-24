@@ -29,5 +29,6 @@ html
               = link_to t('nav.public.apply'), new_partner_path, class: 'nav-link'
     .login-logo
       = image_tag 'DiaperPartner-Logo.png', alt: 'DiaperPartner Logo', style: 'width: 85%; height: 85%', alt: '', title: '', class: 'serv_icon'
-    = yield
+    .container
+      = yield
 
