@@ -21,6 +21,6 @@ class PartnersController < ApplicationController
   private
 
   def partner_params
-    params.permit *Partner::ALL_FIELDS
+    params.require(:partner).permit(*Partner::PERMITTED_COLUMNS)
   end
 end

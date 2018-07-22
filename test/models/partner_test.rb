@@ -1,14 +1,14 @@
 require 'test_helper'
 
 class PartnerTest < ActiveSupport::TestCase
-  test "valid diaper bank" do
-    diaper_bank = Partner.new(name: 'Charity 1')
-    assert diaper_bank.valid?
+  test "valid partner" do
+    partner = Partner.new(name: 'Charity 1')
+    assert partner.valid?
   end
 
   test "invalid without name" do
-    diaper_bank = Partner.new
-    refute diaper_bank.valid?
-    assert_not_nil diaper_bank.errors[:name], 'no validation error for required name field'
+    partner = Partner.new
+    refute partner.valid?
+    assert_not_nil partner.errors[:name], 'no validation error for required name field'
   end
 end
